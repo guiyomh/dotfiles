@@ -1,0 +1,120 @@
+[core]
+        autocrlf = false
+        excludesfile = ~/.gitignore_global
+        pager = less -FXRS -x2
+        editor = vim
+        whitespace = cr-at-eol
+[user]
+	    name = Guillaume CAMUS
+	    email = guillaume.camus@gmail.com
+[github]
+	    user = guiyomh
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = auto
+[color "branch"]
+        upstream = cyan
+        current = green bold
+        local = green
+        remote = red bold
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+[color "status"]
+        added = green bold
+        changed = yellow bold
+        untracked = red
+[color "sh"]
+        branch = yellow
+[alias]
+        # list all aliases
+        la = "!git config -l | grep alias | cut -c 7-"
+        # status / log ref
+        st = status
+        s = status -s
+        lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%an %ar)%Creset'
+        lr = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+        lt = log --format='%h %an %ar - %s'
+        qu = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%an %ar)%Creset' HEAD@{u}... --boundary
+        cbr = rev-parse --abbrev-ref HEAD
+        # commit
+        ci = commit
+        cia = commit --amend
+        co = checkout
+        cp = cherry-pick
+        f = fetch -p
+        next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+        oops = commit --amend --no-edit
+        prev = checkout HEAD^1
+        empty = commit --allow-empty
+        undo = reset --soft HEAD~1
+        amend = commit -a --amend
+        # rebase
+        rb  = rebase
+        rbc = rebase --continue
+        rbs = rebase --skip
+        br = branch -avv
+        ll = log --graph --pretty="format:%C(yellow)%h%Creset by %C(red)%an%Creset (%ar)%C(cyan)%d%Creset%n%s%n%b" --all
+        sm = submodule
+        smu = submodule update --init --recursive
+
+        # show what I did today
+        day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
+
+        # show the committers in the last 100 commits, sorted by who has commited the most
+        review = "!git log --no-merges --pretty=%an | head -n 100 | sort | uniq -c | sort -nr"
+
+        # show all deleted files in the repo
+        deleted = "!git log --diff-filter=D --summary | grep delete"
+
+        cleanup = "!git remote prune origin && git gc && git clean -df && git stash clear"
+        
+        # à tester
+        ls-others = ls-files -o --exclude-standard
+        plog = log --oneline --decorate --graph --boundary
+        qf = log --format="%H" HEAD@{u}..
+        qu1 = log --oneline --decorate --boundary --graph HEAD@{u}...
+        quc = log --oneline --decorate --boundary --graph HEAD@{u}..
+        qus = log --oneline --decorate --boundary --graph --stat -M HEAD@{u}...
+        pq = log --oneline --decorate --graph -p -b HEAD@{u}...
+        pqr = log --oneline --decorate --reverse -p -b HEAD@{u}...
+        fop = fetch -p origin
+        clog = log -g --grep-relog="checkout:" --oneline
+        pdiff = diff -w --color-words
+        pshow = show --color-words
+[branch]
+        # set up 'git pull' to rebase instead of merge
+        autosetuprebase = always
+[push]
+	default = current
+[pull]
+        rebase = true
+[diff]
+        renames = copies
+        mnemonicprefix = true
+        compactionHeuristic = true
+[apply]
+        # do not warn about missing whitespace at EOF
+        whitespace = nowarn
+[merge]
+        conflictStyle = diff3
+[tag]
+        sort = version:refname
+[rerere]
+        enabled = true
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[grep]
+        extendRegexp = true
+        lineNumber = true
+[pager]
+        diff = "diff-so-fancy | less --tabs=4 -RFX"
+        show = "diff-so-fancy | less --tabs=4 -RFX"
