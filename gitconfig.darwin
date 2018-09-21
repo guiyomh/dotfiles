@@ -1,0 +1,65 @@
+[core]
+        autocrlf = false
+        editor = vim
+[color]
+        ui = auto
+[alias]
+        st = status
+        ci = commit
+        cia = commit --amend
+        co = checkout
+        cp = cherry-pick
+        f = fetch -p
+        next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+        oops = commit --amend --no-edit
+        prev = checkout HEAD^1
+        lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%an %ar)%Creset'
+        #log refs
+        lr = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+        # log timeline
+        lt = log --format='%h %an %ar - %s'
+        rb  = rebase
+        rbc = rebase --continue
+        rbs = rebase --skip
+        br = branch -avv
+        ll = log --graph --pretty="format:%C(yellow)%h%Creset by %C(red)%an%Creset (%ar)%C(cyan)%d%Creset%n%s%n%b" --all
+        sm = submodule
+        smu = submodule update --init --recursive
+        s = status -s
+        qu = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%an %ar)%Creset' HEAD@{u}... --boundary
+        
+        # à tester
+        ls-others = ls-files -o --exclude-standard
+        plog = log --oneline --decorate --graph --boundary
+        qf = log --format="%H" HEAD@{u}..
+        qu1 = log --oneline --decorate --boundary --graph HEAD@{u}...
+        quc = log --oneline --decorate --boundary --graph HEAD@{u}..
+        qus = log --oneline --decorate --boundary --graph --stat -M HEAD@{u}...
+        pq = log --oneline --decorate --graph -p -b HEAD@{u}...
+        pqr = log --oneline --decorate --reverse -p -b HEAD@{u}...
+        fop = fetch -p origin
+        clog = log -g --grep-relog="checkout:" --oneline
+        pdiff = diff -w --color-words
+        pshow = show --color-words
+[github]
+	user = guiyomh
+[merge]
+    conflictStyle = diff3
+[color "branch"]
+    upstream = cyan
+[push]
+	default = tracking
+[tag]
+    sort = version:refname
+[rerere]
+    enabled = true
+[user]
+	name = Guillaume CAMUS
+	email = guillaume.camus@gmail.com
+    signingkey = 9F5EFED125064B90411B2076AECCB6A5DD8EE292
+[branch]
+	autosetuprebase = always
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
