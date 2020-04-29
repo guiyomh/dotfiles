@@ -10,7 +10,7 @@ SCRIPT_DIR=$(pwd)
 popd > /dev/null
 
 # names in this list won't be dot-prefixed
-skip_dot_prefix=(nvim)
+skip_dot_prefix=(install Brewfile)
 
 # contains checks if an array ($2) contains a given element ($1).
 contains() {
@@ -20,8 +20,19 @@ contains() {
     return 1
 }
 
-# copy or symlink all the dotfiles
 UNAME=$(uname | tr '[:upper:]' '[:lower:]')
+
+case $UNAME in
+    darwin*)
+    ./install/xcode.sh
+    ./install/brew.sh
+    ;;
+    *)
+    echo "Nothing to do"
+    ;;
+esac
+
+# copy or symlink all the dotfiles
 for path in $SCRIPT_DIR/*; do
     name=$(basename $path)
     case $name in
