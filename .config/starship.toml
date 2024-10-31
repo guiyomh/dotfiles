@@ -1,0 +1,167 @@
+format = """
+[](#9A348E)\
+$os\
+$username\
+[](bg:#DA627D fg:#9A348E)\
+$directory\
+[](fg:#DA627D bg:#86BBD8)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+[▓▒░](fg:#86BBD8)\
+\n$gcloud \
+\n$kubernetes\
+\n$time $character"""
+
+right_format = """
+$git_branch\
+$git_status"""
+
+add_newline = true
+
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+disabled = false
+format = '[$user ]($style)'
+show_always = true
+style_root = "bg:#9A348E"
+style_user = "bg:#9A348E"
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+disabled = true # Disabled by default
+style = "bg:#9A348E" 
+
+[directory]
+format = "[ $path ]($style)"
+style = "bg:#DA627D"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Workspace" = "⚙️"
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
+
+[c]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[docker_context]
+format = '[ $symbol $context ]($style)'
+style = "bg:#06969A"
+symbol = " "
+
+[elixir]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[elm]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($region\))(\($project\))]($style)'
+[gcloud.region_aliases]
+asia-northeast1 = 'an1'
+europe-west9 = 'ew9'
+us-central1 = 'uc1'
+[gcloud.project_aliases]
+peppy-castle-435807-i1 = 'vlpn'
+
+[git_branch]
+format = '$symbol $branch'
+style = "bg:#FCA17D"
+symbol = ""
+
+[git_status]
+format = '$all_status$ahead_behind'
+style = "bg:#FCA17D"
+
+[golang]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[gradle]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+
+[haskell]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[java]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[julia]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[kubernetes]
+disabled = false
+symbol = "⎈"
+format = '[$symbol $context \($namespace\)]($style)'
+[[kubernetes.contexts]]
+context_pattern = "gke_ornikar-(?<country>[a-z]+)-(?<cluster>[a-z]+).*"
+context_alias = "$cluster $country"
+style = "purple"
+symbol = "⎈🚗 "
+
+
+[nodejs]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = ""
+
+[nim]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = "󰆥 "
+
+[rust]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = ""
+
+[scala]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:#86BBD8"
+symbol = " "
+
+[time]
+disabled = false 
+format = '  $time' 
+time_format = "%T" # Hour:Minute Format
