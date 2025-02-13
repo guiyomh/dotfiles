@@ -1,10 +1,13 @@
 format = """
-[](#9A348E)\
-$os\
+$time \
 $username\
-[](bg:#DA627D fg:#9A348E)\
+$hostname\
 $directory\
-[](fg:#DA627D bg:#86BBD8)\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
 $c\
 $elixir\
 $elm\
@@ -17,30 +20,41 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[▓▒░](fg:#86BBD8)\
-\n$gcloud \
-\n$kubernetes\
-\n$time $character"""
+$python\
+$character"""
+
+# format = """
+# [](#9A348E)\
+# $os\
+# $username\
+# [](bg:#DA627D fg:#9A348E)\
+# $directory\
+# [](fg:#DA627D bg:#86BBD8)\
+# $c\
+# $elixir\
+# $elm\
+# $golang\
+# $gradle\
+# $haskell\
+# $java\
+# $julia\
+# $nodejs\
+# $nim\
+# $rust\
+# $scala\
+# [▓▒░](fg:#86BBD8)\
+# \n$gcloud \
+# \n$kubernetes\
+# \n$time $character"""
 
 right_format = """
-$git_branch\
-$git_status"""
+"""
 
-add_newline = true
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
-continuation_prompt = "[▸▹ ](dimmed white)"
-
-# Disable the blank line at the start of the prompt
-# add_newline = false
-
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
-[username]
-disabled = false
-format = '[$user ]($style)'
-show_always = true
-style_root = "bg:#9A348E"
-style_user = "bg:#9A348E"
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
@@ -49,8 +63,7 @@ disabled = true # Disabled by default
 style = "bg:#9A348E" 
 
 [directory]
-format = "[ $path ]($style)"
-style = "bg:#DA627D"
+style = "blue"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -72,6 +85,10 @@ truncation_symbol = "…/"
 format = '[ $symbol ($version) ]($style)'
 style = "bg:#86BBD8"
 symbol = " "
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
 
 [docker_context]
 format = '[ $symbol $context ]($style)'
@@ -98,13 +115,24 @@ us-central1 = 'uc1'
 peppy-castle-435807-i1 = 'vlpn'
 
 [git_branch]
-format = '$symbol $branch'
-style = "bg:#FCA17D"
+format = "[$branch]($style)"
+style = "bright-black"
 symbol = ""
 
 [git_status]
-format = '$all_status$ahead_behind'
-style = "bg:#FCA17D"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
 
 [golang]
 format = '[ $symbol ($version) ]($style)'
