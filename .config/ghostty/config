@@ -3,5 +3,5 @@ foreground = ffffff
 
 font-family = "DankMono Nerd Font"
 
-background-opacity = 0.9
-background-blur = 20
+background-opacity = 0.95
+background-blur = 10
