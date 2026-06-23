@@ -116,7 +116,7 @@ peppy-castle-435807-i1 = 'vlpn'
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bright-black"
+style = "fg:#aaaaaa"
 symbol = ""
 
 [git_status]
