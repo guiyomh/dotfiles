@@ -62,10 +62,12 @@
 [user]
 	email = guillaume.camus@ornikar.com
 	name = Guillaume CAMUS
-	signingkey = 493D3ED05A607896
+	signingkey = 7A01B58DDF9CC73C
 [gpg]
 	program = /opt/homebrew/bin/gpg
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
