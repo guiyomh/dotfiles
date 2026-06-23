@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANDROID_HOME:/Users/guillaume/Library/Android/sdk
+SETUVAR --export FLUTTER_ROOT:/Users/guillaume/development/flutter
+SETUVAR --export --path PATH:/Users/guillaume/development/flutter/bin/\x1e/opt/homebrew/bin\x1e/opt/homebrew/sbin\x1e/Users/guillaume/\x2epub\x2dcache/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/guillaume/development/flutter/bin\x1e/opt/homebrew/opt/mysql\x2dclient\x408\x2e4/bin\x1e/opt/homebrew/opt/mysql\x2dclient/bin\x1e/Users/guillaume/Library/Android/sdk/platform\x2dtools\x1e/Users/guillaume/go/bin\x1e/Users/guillaume/\x2elocal/bin\x1e/Users/guillaume/\x2ekrew/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS\x1e/usr/local/bin\x1e/System/Cryptexes/App/usr/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/local/bin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/bin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/appleinternal/bin\x1e/Library/Apple/usr/bin\x1e/usr/local/go/bin\x1e/Users/guillaume/development/flutter/bin/\x1e/Users/guillaume/Library/pnpm\x1e/Users/guillaume/\x2ecargo/bin\x1e/Users/guillaume/\x2eorbstack/bin\x1e/Users/guillaume/Library/Application\x20Support/Code/User/globalStorage/github\x2ecopilot\x2dchat/debugCommand\x1e/Users/guillaume/Library/Android/sdk/emulator\x1e/Users/guillaume/Library/Android/sdk/platform\x2dtools
 SETUVAR --export XDG_CONFIG_HOME:/Users/guillaume/\x2econfig
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
@@ -40,4 +43,4 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/guillaume/Library/Android/sdk/platform\x2dtools\x1e/Users/guillaume/go/bin\x1e/Users/guillaume/\x2elocal/bin\x1e/Users/guillaume/\x2ekrew/bin
+SETUVAR fish_user_paths:/Users/guillaume/\x2enpm\x2dglobal/bin\x1e/Users/guillaume/\x2ebun/bin\x1e/Users/guillaume/\x2eantigravity/antigravity/bin\x1e/Users/guillaume/\x2epub\x2dcache/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/guillaume/development/flutter/bin\x1e/opt/homebrew/opt/mysql\x2dclient\x408\x2e4/bin\x1e/opt/homebrew/opt/mysql\x2dclient/bin\x1e/Users/guillaume/Library/Android/sdk/platform\x2dtools\x1e/Users/guillaume/go/bin\x1e/Users/guillaume/\x2elocal/bin\x1e/Users/guillaume/\x2ekrew/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS
