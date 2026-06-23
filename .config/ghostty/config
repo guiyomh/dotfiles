@@ -5,3 +5,4 @@ font-family = "DankMono Nerd Font"
 
 background-opacity = 0.95
 background-blur = 10
+keybind = shift+enter=text:\x1b\r
