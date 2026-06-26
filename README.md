@@ -16,6 +16,7 @@ its expected location (`~/.config/*` and `~/.gitconfig`).
 | `.config/starship.toml`    | Starship  | Prompt                                                             |
 | `.config/yazi/`            | Yazi      | TUI file manager (placeholder)                                     |
 | `.gitconfig`               | Git       | Global git config (GPG signing, aliases, URL rewrites)             |
+| `bin/`                     | Scripts   | Personal executables, symlinked onto `$PATH`                       |
 
 ## Prerequisites
 
@@ -28,6 +29,12 @@ brew install --cask ghostty kitty
 
 Optional, referenced by the Fish config when present: `rbenv`, `rustup`, `pnpm`,
 [OrbStack](https://orbstack.dev/).
+
+The `transcript` script (see `bin/`) additionally needs `ffmpeg` and `whisper-cpp`:
+
+```sh
+brew install ffmpeg whisper-cpp
+```
 
 Set Fish as the default shell:
 
@@ -80,6 +87,20 @@ This installs `jethrokuan/z` (directory jumping) and `patrickf1/fzf.fish`.
 ### Neovim
 
 LazyVim bootstraps itself on first launch — just open `nvim` and let it sync plugins.
+
+### Scripts (`bin/`)
+
+Executables in `bin/` are exposed on `$PATH` via symlinks in `~/.local/bin` (already
+on `$PATH` through `fish_user_paths`):
+
+```sh
+mkdir -p ~/.local/bin
+ln -sfn "$DOTFILES/bin/transcript.sh" ~/.local/bin/transcript
+```
+
+`transcript` extracts audio from a file and transcribes it to French text with
+whisper.cpp. Requires `ffmpeg` and `whisper-cpp` (see Prerequisites). Run
+`transcript` with no arguments for usage.
 
 ## Secrets
 
